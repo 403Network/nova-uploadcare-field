@@ -6,11 +6,15 @@
 
                 <a class="btn btn-link text-danger opacity-50 cursor-pointer" @click.prevent="clear">Clear</a>
             </div>
+            <div v-if="uploading">
+
+            </div>
             <uploadcare
                     class="btn btn-default btn-primary cursor-pointer"
                     :id="field.name"
                     :publicKey="field.key"
                     imageShrink="2000 x 2000 85%"
+                    @progress="() => console.log('progress')"
                     @success="onSuccess">
                 <div v-if="value">Upload new file</div>
                 <div v-if="!value">Upload file</div>
