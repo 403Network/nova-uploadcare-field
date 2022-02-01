@@ -1,5 +1,5 @@
 {
-    "name": "enflow/nova-uploadcare-field",
+    "name": "FourZeroThree/nova-uploadcare-field",
     "description": "A Laravel Nova Uploadcare file upload field.",
     "keywords": [
         "laravel",
