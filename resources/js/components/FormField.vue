@@ -15,8 +15,8 @@
                     :publicKey="field.key"
                     imageShrink="2000 x 2000 85%"
                     @progress="progressUpdate"
-                    @uploading="this.uploading = true"
-                    @completed="this.uploading = false"
+                    @uploading="uploadingStarted"
+                    @completed="uploadingEnded"
                     @success="onSuccess">
                 <div v-if="value">Upload new file</div>
                 <div v-if="!value">Upload file</div>
@@ -44,6 +44,14 @@
         created() {
         },
         methods: {
+            uploadingStarted () {
+                this.uploading = true;
+                console.log('uploading started')
+            },
+            uploadingEnded () {
+                this.uploading = false;
+                console.log('uploading END')
+            },
             progressUpdate (e) {
                 console.log(e)
             },
