@@ -10,6 +10,7 @@
                 <a class="btn btn-link text-danger opacity-50 cursor-pointer" @click.prevent="clear">Clear</a>
             </div>
             <uploadcare
+                    v-if="!uploading"
                     class="btn btn-default btn-primary cursor-pointer"
                     :id="field.name"
                     :publicKey="field.key"

@@ -878,6 +878,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -54181,28 +54182,30 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _c(
-            "uploadcare",
-            {
-              staticClass: "btn btn-default btn-primary cursor-pointer",
-              attrs: {
-                id: _vm.field.name,
-                publicKey: _vm.field.key,
-                imageShrink: "2000 x 2000 85%"
-              },
-              on: {
-                progress: _vm.progressUpdate,
-                uploading: _vm.uploadingStarted,
-                completed: _vm.uploadingEnded,
-                success: _vm.onSuccess
-              }
-            },
-            [
-              _vm.value ? _c("div", [_vm._v("Upload new file")]) : _vm._e(),
-              _vm._v(" "),
-              !_vm.value ? _c("div", [_vm._v("Upload file")]) : _vm._e()
-            ]
-          ),
+          !_vm.uploading
+            ? _c(
+                "uploadcare",
+                {
+                  staticClass: "btn btn-default btn-primary cursor-pointer",
+                  attrs: {
+                    id: _vm.field.name,
+                    publicKey: _vm.field.key,
+                    imageShrink: "2000 x 2000 85%"
+                  },
+                  on: {
+                    progress: _vm.progressUpdate,
+                    uploading: _vm.uploadingStarted,
+                    completed: _vm.uploadingEnded,
+                    success: _vm.onSuccess
+                  }
+                },
+                [
+                  _vm.value ? _c("div", [_vm._v("Upload new file")]) : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.value ? _c("div", [_vm._v("Upload file")]) : _vm._e()
+                ]
+              )
+            : _vm._e(),
           _vm._v(" "),
           _vm.hasError
             ? _c("p", { staticClass: "my-2 text-danger" }, [
