@@ -15,7 +15,7 @@
         "laravel-nova": "^1.0"
     },
     "dependencies": {
-        "uploadcare-vue": "^1.0.0",
+        "uploadcare-vue": "git+https://github.com/403Network/uploadcare-vue.git",
         "vue": "^2.5.0"
     }
 }
