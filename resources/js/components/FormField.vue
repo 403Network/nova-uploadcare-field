@@ -14,6 +14,7 @@
                     :id="field.name"
                     :publicKey="field.key"
                     imageShrink="2000 x 2000 85%"
+                    @progress="progressUpdate"
                     @uploading="this.uploading = true"
                     @completed="this.uploading = false"
                     @success="onSuccess">
@@ -43,6 +44,9 @@
         created() {
         },
         methods: {
+            progressUpdate (e) {
+                console.log(e)
+            },
             setInitialValue() {
                 this.value = this.field.value || ''
             },
