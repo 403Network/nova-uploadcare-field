@@ -2,7 +2,7 @@
     <default-field :field="field">
         <template slot="field">
             <div v-if="uploading">
-                <span>Uploading...</span>
+                <span class="uc-upload-status">Uploading...</span>
             </div>
             <div v-else-if="value" class="mb-3">
                 <a class="btn btn-link text-primary cursor-pointer text-80 mr-3" :href="value" target="_blank">View File</a>
@@ -74,3 +74,11 @@
         }
     }
 </script>
+
+<style scoped>
+.uc-upload-status {
+    padding: 0 0 1rem;
+    display: block;
+    font-weight: bold;
+}
+</style>
