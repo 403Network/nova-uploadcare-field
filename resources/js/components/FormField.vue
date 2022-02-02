@@ -14,7 +14,6 @@
                     :id="field.name"
                     :publicKey="field.key"
                     imageShrink="2000 x 2000 85%"
-                    @progress="() => console.log('progress')"
                     @uploading="this.uploading = true"
                     @completed="this.uploading = false"
                     @success="onSuccess">
