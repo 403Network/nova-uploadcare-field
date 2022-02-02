@@ -1,13 +1,13 @@
 <template>
     <default-field :field="field">
         <template slot="field">
-            <div v-if="value" class="mb-3">
+            <div v-if="uploading">
+                <span>Uploading...</span>
+            </div>
+            <div v-else-if="value" class="mb-3">
                 <a class="btn btn-link text-primary cursor-pointer text-80 mr-3" :href="value" target="_blank">View File</a>
 
                 <a class="btn btn-link text-danger opacity-50 cursor-pointer" @click.prevent="clear">Clear</a>
-            </div>
-            <div v-if="uploading">
-
             </div>
             <uploadcare
                     class="btn btn-default btn-primary cursor-pointer"
@@ -15,6 +15,8 @@
                     :publicKey="field.key"
                     imageShrink="2000 x 2000 85%"
                     @progress="() => console.log('progress')"
+                    @uploading="this.uploading = true"
+                    @completed="this.uploading = false"
                     @success="onSuccess">
                 <div v-if="value">Upload new file</div>
                 <div v-if="!value">Upload file</div>
@@ -32,7 +34,9 @@
 
     export default {
         mixins: [FormField, HandlesValidationErrors],
-
+        data: () => ({
+            uploading: false,
+        }),
         props: ['resourceName', 'resourceId', 'field'],
 
         components: {Uploadcare},
